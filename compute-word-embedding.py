@@ -12,7 +12,8 @@ s3Client = boto3.client('s3')
 dbResource = boto3.resource('dynamodb')
 
 # SentenceTransformer Table
-sSentenceTransformerTableName = os.environ['SentenceTransformerTable']
+#sSentenceTransformerTableName = os.environ['SentenceTransformerTable']
+sSentenceTransformerTableName = "me-SentenceTransformersTable-HTBDVPCYEC71"
 
 # Does sentence transformer support reloaded models? We'll need to find out.
 # Also, SentenceTransformer is deprecated, but I don't have time to replace model/redo code.
