@@ -48,6 +48,12 @@ def lambda_handler(event, context):
     # write to dynamodb
     writeDynamoDB(sSentenceTransformerTableName, sAssetId, serialized_embedding)
 
+    return {
+        'statusCode': 200,
+        'body': json.dumps('Sentence Embeddings Event Triggered!')
+    }
+
+    
 #Read from S3
 def readObject(sBucket, sKey):
   return s3Client.get_object(Bucket=sBucket, Key=sKey)['Body'].read()
@@ -55,3 +61,8 @@ def readObject(sBucket, sKey):
 #Write our pickles to DynamoDB
 def writeDynamoDB(sTableName, sAssetId, sPickledEmbeddings):
   table = dbResource.Table(sTableName)
+    responseDynamoDB = table.put_item(
+        Item={
+            "AssetId": sAssetId,
+            "PickledEmbeddings": str(sPickledEmbeddings)
+        }
