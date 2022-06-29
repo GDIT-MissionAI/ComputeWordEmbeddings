@@ -66,3 +66,4 @@ def writeDynamoDB(sTableName, sAssetId, sPickledEmbeddings):
           "AssetId": sAssetId,
           "PickledEmbeddings": str(sPickledEmbeddings)
       }
+  )
