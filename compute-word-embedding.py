@@ -61,8 +61,8 @@ def readObject(sBucket, sKey):
 #Write our pickles to DynamoDB
 def writeDynamoDB(sTableName, sAssetId, sPickledEmbeddings):
   table = dbResource.Table(sTableName)
-    responseDynamoDB = table.put_item(
-        Item={
-            "AssetId": sAssetId,
-            "PickledEmbeddings": str(sPickledEmbeddings)
-        }
+  responseDynamoDB = table.put_item(
+      Item={
+          "AssetId": sAssetId,
+          "PickledEmbeddings": str(sPickledEmbeddings)
+      }
