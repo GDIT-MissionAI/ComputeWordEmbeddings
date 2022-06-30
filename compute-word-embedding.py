@@ -58,7 +58,7 @@ def lambda_handler(event, context):
     
 #Read from S3
 def readObject(sBucket, sKey):
-  return s3Client.get_object(Bucket=sBucket, Key=sKey)['Body'].read()
+  return s3Client.get_object(Bucket=sBucket, Key=sKey)['Body'].read().decode('utf-8')
   
 #Write our pickles to DynamoDB
 def writeDynamoDB(sTableName, sAssetId, sPickledEmbeddings):
