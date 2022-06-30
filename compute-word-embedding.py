@@ -27,9 +27,9 @@ def lambda_handler(event, context):
     sSrcExtension = ""
     
     #event_dict = json.loads(event) #if "key" in "dict"
-    sSrcBucket = event["detail"]["AssetStorageBucket"]
-    sSrcKey = event["detail"]["AssetStorageKey"]
-    sSrcExtension = event["detail"]["AssetType"]
+    sSrcBucket = event["detail"]["ProcessOutputBucket"]
+    sSrcKey = event["detail"]["ProcessOutputKey"]
+    sSrcExtension = event["detail"]["ProcessExtension"]
     sAssetId = event["detail"]["AssetId"]
     
     # This will download and load the pretrained model offered by UKPLab.
