@@ -35,7 +35,7 @@ def lambda_handler(event, context):
     # This will download and load the pretrained model offered by UKPLab.
     # Need to see if we can use the preloaded model, which is loaded in lambda container rather than downloading on every execution.
     #model = SentenceTransformer('bert-base-nli-mean-tokens')
-    model = SentenceTransformer('/model/')
+    model = SentenceTransformer('model/')
     # Although it is not explicitly stated in the official document of sentence transformer, the original BERT is meant for a shorter sentence. We will feed the model by sentences instead of the whole documents.
     
     # read document from s3 
