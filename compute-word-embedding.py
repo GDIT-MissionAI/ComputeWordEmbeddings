@@ -66,6 +66,6 @@ def writeDynamoDB(sTableName, sAssetId, sPickledEmbeddings):
   responseDynamoDB = table.put_item(
       Item={
           "AssetId": sAssetId,
-          "PickledEmbeddings": str(sPickledEmbeddings)
+          "PickledEmbeddings": {B: sPickledEmbeddings}
       }
   )
