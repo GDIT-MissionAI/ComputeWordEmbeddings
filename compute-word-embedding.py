@@ -67,6 +67,6 @@ def writeDynamoDB(sTableName, sAssetId, sPickledEmbeddings):
   responseDynamoDB = table.put_item(
       Item={
           "AssetId": sAssetId,
-          "PickledEmbeddings": {B: b64encode(sPickledEmbeddings)}
+          "PickledEmbeddings": {'B': b64encode(sPickledEmbeddings)}
       }
   )
