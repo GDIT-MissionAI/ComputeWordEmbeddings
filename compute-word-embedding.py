@@ -6,6 +6,7 @@ from sentence_transformers import SentenceTransformer
 import json
 import boto3
 import botocore
+from base64 import b64encode
 
 #load clients
 s3Client = boto3.client('s3')
@@ -66,6 +67,6 @@ def writeDynamoDB(sTableName, sAssetId, sPickledEmbeddings):
   responseDynamoDB = table.put_item(
       Item={
           "AssetId": sAssetId,
-          "PickledEmbeddings": {B: sPickledEmbeddings}
+          "PickledEmbeddings": {B: b64encode(sPickledEmbeddings)}
       }
   )
